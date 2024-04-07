@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('notify_codes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('code')->unique();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->unique(['code', 'user_id']);
+            $table->timestamp('expired_at');
         });
     }
 
