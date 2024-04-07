@@ -11,6 +11,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -45,5 +46,10 @@ class User extends Authenticatable
             'mobile_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function codes()
+    {
+        return $this->hasMany(NotifyCode::class);
     }
 }
