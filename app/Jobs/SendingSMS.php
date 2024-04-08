@@ -24,6 +24,7 @@ class SendingSMS implements ShouldQueue, ShouldBeEncrypted  # To encrypt errors
 
     public $tries = 5; # Number of attempts to execute
     public $retryAfter = 10; # Delay time between attempts
+    public $timeout = 120; # The maximum execution time of the job
 
 
     public int $code;
